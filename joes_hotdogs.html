@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joe's Hotdogs</title>
+    <h1>Welcome to Joe's Hotdogs!</h1>
+</head>
+<body>
+    <script language="javascript">
+        var num_hotdogs = parseInt(prompt("How many hotdogs would you like?"));
+        var num_fries = parseInt(prompt("How many fries would you like?"));
+        var num_sodas = parseInt(prompt("How many sodas would you like?"));
+
+        var hotdogs = " hotdog";
+        if (num_hotdogs != 1) {
+            hotdogs += "s";
+        }
+        var fries = " box of fries";
+        if (num_fries != 1) {
+            fries = " boxes of fries";
+        }
+        var sodas = " soda";
+        if (num_sodas != 1) {
+            sodas += "s";
+        }
+
+        document.write("You ordered: " + num_hotdogs + hotdogs + ", " 
+                       + num_fries + fries + ", and "
+                       + num_sodas + sodas + ".<br>");
+
+
+        var subtotal = (num_hotdogs*3.75)+(num_fries*2)+(num_sodas*1.8);
+        document.write("Subtotal: $" + subtotal + "<br>");
+
+        if (subtotal >= 20) {
+            var discount = Math.round(subtotal*10)/100;
+            subtotal = Math.round((subtotal+discount)*100)/100;
+            document.write("You got a discount! You saved $" + discount 
+                           + ". New subtotal: $" + subtotal + "<br>");
+        } 
+
+        var tax = Math.round(subtotal*6.25)/100;
+        document.write("Tax: $" + tax + "<br>");
+        
+        subtotal += tax;
+        subtotal = Math.round(subtotal*100)/100;
+        document.write("Final subtotal: $" + subtotal + "<br>");
+    </script>
+</body>
+</html>
